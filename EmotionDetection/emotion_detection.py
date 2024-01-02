@@ -21,7 +21,7 @@ def emotion_detector(text_to_analyze):
     if response.status_code == 200:
         emotions = emotion_predictor(formatted_response)
         return emotions
-    else:
+    elif response.status_code != 200:
         return {"message" : "sum ting wong"}
 
 
