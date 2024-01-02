@@ -2,15 +2,8 @@ import requests
 import json
 
 def emotion_predictor(formatted_response):
-    '''Returns :
-    {
-    'anger': anger_score,
-    'disgust': disgust_score,
-    'fear': fear_score,
-    'joy': joy_score,
-    'sadness': sadness_score,
-    'dominant_emotion': '<name of the dominant emotion>'
-    }
+    '''
+    Returns : emtions with the dominant one as a dict
     '''
     emotions = formatted_response["emotionPredictions"][0]["emotion"]
     dominant_emotion = max(emotions, key=emotions.get)
