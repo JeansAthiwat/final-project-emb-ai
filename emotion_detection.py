@@ -9,7 +9,11 @@ def emotion_detector(text_to_analyze):
 
     response = requests.post(URL, json = myobj , headers = HEADERS)
     formatted_response = json.loads(response.text)
-    
-    return formatted_response
+
+    if response.status_code == 200:
+        return formatted_response
+
+    else:
+        return {"message" : "sum ting wong"}
 
 
