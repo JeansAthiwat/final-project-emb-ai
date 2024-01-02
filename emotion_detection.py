@@ -1,4 +1,5 @@
 import requests
+import json
 
 def emotion_detector(text_to_analyze):
 
@@ -7,7 +8,8 @@ def emotion_detector(text_to_analyze):
     myobj = { "raw_document": { "text": text_to_analyze } }
 
     response = requests.post(URL, json = myobj , headers = HEADERS)
-
-    return response
+    formatted_response = json.loads(response.text)
+    
+    return formatted_response
 
 
